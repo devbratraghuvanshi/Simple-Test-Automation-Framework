@@ -124,7 +124,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Then("User Click on \"SignInButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 14
-    testRunner.Then("User waits for 10 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User waits for 15 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
     testRunner.Then("User close the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

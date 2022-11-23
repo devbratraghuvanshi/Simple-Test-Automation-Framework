@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using STAF.Pages;
 
 namespace STAF.StepDefinitions
@@ -45,9 +46,13 @@ namespace STAF.StepDefinitions
 		}
 
 		[Then("User waits for {int} second(s)")]
-		public void ThenUserWaitsForSeconds(int secoonds)
+		public void ThenUserWaitsForSeconds(int sec)
 		{
-			Thread.Sleep(secoonds);
+			//Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(secoonds);
+			//Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(sec);
+			//WebDriverWait wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(5));
+			//Thread.Sleep(5);
+			Driver.Wait(sec);
 		}
 
 		[Then("User close(s) the browser")]
@@ -86,6 +91,7 @@ namespace STAF.StepDefinitions
 		[Then("User Scroll(s) {string} by {int} px")]
 		public void ThenUserScrollSPx(string up, int px)
 		{
+
 		}
 
 		[Then("User clears the {string}")]

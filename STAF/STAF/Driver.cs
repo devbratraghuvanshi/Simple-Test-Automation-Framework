@@ -59,6 +59,11 @@ namespace STAF
 			}
 		}
 
+		public static void Wait(int sec)
+        {
+			Thread.Sleep(sec*1000);
+        }
+
 		public static Size GetWindowSize()
 		{
 			return Instance.Manage().Window.Size;

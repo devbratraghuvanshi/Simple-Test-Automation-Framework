@@ -2,8 +2,7 @@
 {
     public class OminiLoginPage : Page
 	{
-		public OminiLoginPage(string pageName)
-			: base(pageName)
+		public OminiLoginPage(string pageName): base(pageName)
 		{
 			base["LoginTextBox"] = new ShadowPath("#portal-login > portal-login", "#username");
 			base["SignInButton"] = new ShadowPath("#portal-login > portal-login", "#eid-login-btn");
