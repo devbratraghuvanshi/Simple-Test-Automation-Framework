@@ -40,6 +40,11 @@ namespace STAF
 			Instance.Navigate().GoToUrl(url);
 		}
 
+		public static string getCurrentUre()
+		{
+			return Instance.Url;
+		}
+
 		public static void Refresh()
 		{
 			Instance.Navigate().Refresh();
@@ -48,6 +53,11 @@ namespace STAF
 		public static void Close()
 		{
 			Instance.Close();
+		}
+
+		public static void RightClick(IWebElement ele)
+        {
+			ActionsInstance.MoveToElement(ele).ContextClick().Build().Perform();
 		}
 
 		public static void Quit()

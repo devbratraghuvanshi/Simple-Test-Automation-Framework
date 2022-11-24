@@ -1,4 +1,6 @@
-﻿namespace STAF.Pages
+﻿using System.Text.RegularExpressions;
+
+namespace STAF.Pages
 {
     public abstract class Page
 	{
@@ -6,19 +8,31 @@
 
 		public string PageName;
 
-		public IPath this[string key]
+		public IPath this[string elementName]
 		{
 			get
 			{
-				if (_xPaths.ContainsKey(key))
+				string pathKaey = this.getPathKey(elementName);
+				if (_xPaths.ContainsKey(pathKaey))
 				{
-					return _xPaths[key];
-				}
-				throw new Exception("no such element exist on the page");
+					return _xPaths[pathKaey];
+                }
+                else
+                {
+					throw new Exception("no such element exist on the page");
+                }
 			}
 			set
 			{
-				_xPaths[key] = value;
+				string pathKaey = this.getPathKey(elementName);
+
+				if (!_xPaths.ContainsKey(pathKaey))
+				{
+					_xPaths[pathKaey] = value;
+
+                }else{
+					throw new Exception($"an element with name {elementName} already added on the page please provide unique name");
+                }
 			}
 		}
 
@@ -26,6 +40,11 @@
 		{
 			PageName = pageName;
 			_xPaths = new Dictionary<string, IPath>();
+		}
+
+		private string getPathKey(string elementName)
+        {
+			return Regex.Replace(elementName, @"\s+", String.Empty).ToLower();
 		}
 	}
 }

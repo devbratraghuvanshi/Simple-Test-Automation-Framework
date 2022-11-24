@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using STAF.Pages;
 
@@ -45,6 +46,14 @@ namespace STAF.StepDefinitions
 			url.GoToUrl();
 		}
 
+		[Then("User Validate that current url is {string}")]
+		public void ThenUserValidateThatCurrentUrlIs(string urlToMatch)
+		{
+			var cUrl = Driver.getCurrentUre();
+			Assert.AreEqual(cUrl, urlToMatch);
+		}
+
+
 		[Then("User waits for {int} second(s)")]
 		public void ThenUserWaitsForSeconds(int sec)
 		{
@@ -61,12 +70,36 @@ namespace STAF.StepDefinitions
 			Driver.Close();
 		}
 
-		[Then("User Click on {string}")]
-		public void ThenUserClickOn(string element)
+		//[Then("User Click on {string}")]
+		//public void ThenUserClickOn(string element)
+		//{
+		//	IPath path = page[element];
+		//	path.getElement().Click();
+		//}
+		[Then("User {UserAction} on {string}")]
+		public void ThenUserOn(UserAction action, string element)
 		{
 			IPath path = page[element];
-			path.getElement().Click();
+			var webEle= path.getElement();
+            switch (action)
+            {
+                case UserAction.Click:
+					webEle.Click();
+					break;
+                case UserAction.RightClick:
+					Driver.RightClick(webEle);
+					break;
+                case UserAction.ScrollDown:
+                    break;
+                case UserAction.ScrollUp:
+                    break;
+                case UserAction.DoubleClick:
+                    break;
+                default:
+                    break;
+            }
 		}
+
 
 		[Then("User Click on {string} of {string} page")]
 		public void ThenUserClickOnOf(string element, string page)
@@ -104,6 +137,8 @@ namespace STAF.StepDefinitions
 		{
 		}
 
+		[Then("User enter(s) {string} in the {string}")]
+		[Then("User enter(s) text {string} in the {string}")]
 		[Then("User type(s) text {string} in the {string}")]
 		public void ThenUserTypesTextInThe(string textToType, string element)
 		{
@@ -118,6 +153,13 @@ namespace STAF.StepDefinitions
 		public void ThenUserSelectsStItemOfThe(int itemNumber, string element)
 		{
 		}
+
+		[Then("User validate(s)/confirm(s)/verify/verify/verifie(s) text {string} exist on the Page")]
+		public void ThenUserValidateTextExistOnThePage(string asd)
+		{
+			throw new PendingStepException();
+		}
+
 
 		[Then("User press {string} Key")]
 		public void ThenUserPressKey(string keyname)

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace STAF
 {
-    public enum Browser
-	{
-		Chrome,
-		Firefox,
-		IE,
-		Safari,
-		Edge,
-		Remote
+    public enum UserAction
+    {
+        Click,
+        RightClick,
+        ScrollDown,
+        ScrollUp,
+        DoubleClick
+
 	}
 }
