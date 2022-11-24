@@ -12,7 +12,14 @@ namespace STAF
         RightClick,
         ScrollDown,
         ScrollUp,
+        Scroll,
         DoubleClick
 
 	}
+
+    public enum PageDirection
+    {
+        Top,
+        Bottom
+    }
 }

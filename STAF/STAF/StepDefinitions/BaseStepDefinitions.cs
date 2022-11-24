@@ -100,6 +100,46 @@ namespace STAF.StepDefinitions
             }
 		}
 
+		[Then("User {UserAction} {int} px")]
+		public void ThenUserScrollDownPx(UserAction action, int scrollPixel)
+		{
+            switch (action)
+            {
+                case UserAction.ScrollDown:
+					//Driver.Scroll(0, scrollPixel);
+                    break;
+                case UserAction.ScrollUp:
+					//Driver.Scroll(0, -1*scrollPixel);
+					break;
+                default:
+                    break;
+            }
+		}
+
+		[Then("User {UserAction} to {string}")]
+		public void ThenUserScrollDownTo(UserAction action, string element)
+		{
+			
+		}
+
+
+		[Then("User {UserAction} to the {PageDirection} of Page")]
+		public void ThenUserScrollToTheTopOfPage(UserAction action, PageDirection direction)
+		{
+			if(action == UserAction.Scroll)
+            {
+                if (direction == PageDirection.Top)
+                {
+
+                }
+				if (direction == PageDirection.Bottom)
+				{
+
+				}
+
+			}
+		}
+
 
 		[Then("User Click on {string} of {string} page")]
 		public void ThenUserClickOnOf(string element, string page)
@@ -154,10 +194,16 @@ namespace STAF.StepDefinitions
 		{
 		}
 
-		[Then("User validate(s)/confirm(s)/verify/verify/verifie(s) text {string} exist on the Page")]
+		[Then("User Validate(s)/validate(s)/Confirm(s)/confirm(s)/Verify/verify/Verifie(s)/verifie(s) text {string} exist on the Page")]
 		public void ThenUserValidateTextExistOnThePage(string asd)
 		{
-			throw new PendingStepException();
+			//to Complete
+		}
+
+		[Then("User Validate(s)/validate(s)/Confirm(s)/confirm(s)/Verify/verify/Verifie(s)/verifie(s) text {string} exist on/in the {string}")]
+		public void ThenUserValidateTextExistOnThePage(string textToVerify, string elementName )
+		{
+			//to Complete
 		}
 
 

@@ -117,32 +117,41 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
     testRunner.Then("User Click on \"LoginTextBox\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
+#line 16
     testRunner.Then("User types text \"qa\" in the \"Login Text Box\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 13
+#line 17
     testRunner.Then("User enter text \".\" in the \"login textbox\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 14
+#line 18
     testRunner.Then("User enter \"test\" in the \"LoginText  Box\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 15
-    testRunner.Then("User Click on \"SignInButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
-    testRunner.Then("User types text \"Welcome@123\" in the \"PasswordTextBox\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 17
-    testRunner.Then("User Click on \"SignInButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 18
-    testRunner.Then("User waits for 15 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 19
-    testRunner.Then("User close the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User Click on \"SignInButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
+    testRunner.Then("User types text \"Welcome@123\" in the \"PasswordTextBox\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 21
+    testRunner.Then("User Click on \"SignInButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 22
+    testRunner.Then("User waits for 5 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 23
+    testRunner.Then("User Scroll to the Bottom of Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 24
+    testRunner.Then("User Scroll to the Top of Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 25
+    testRunner.Then("User close the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
     testRunner.Then("User verifie text \"asd\" exist on the Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 27
+    testRunner.Then("User verifie text \"asd\" exist on the \"SearchBox\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

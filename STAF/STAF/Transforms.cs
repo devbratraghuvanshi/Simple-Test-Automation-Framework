@@ -17,5 +17,21 @@
 			}
 
 		}
+
+		[StepArgumentTransformation]
+		public PageDirection PageDirectionTransform(string pageDirection)
+		{
+			PageDirection direction;
+			if (Enum.TryParse<PageDirection>(pageDirection, true, out direction))
+			{
+				return direction;
+				;
+			}
+			else
+			{
+				throw new Exception(pageDirection + " is Not Valid page location");
+			}
+
+		}
 	}
 }
