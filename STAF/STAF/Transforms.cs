@@ -1,7 +1,7 @@
 ﻿namespace STAF
 {
-    [Binding]
-	public class Transforms
+	[Binding]
+	public class BaseTransforms
 	{
 		[StepArgumentTransformation]
 		public UserAction UserActionTransform(string userAction)
@@ -25,7 +25,6 @@
 			if (Enum.TryParse<PageDirection>(pageDirection, true, out direction))
 			{
 				return direction;
-				;
 			}
 			else
 			{

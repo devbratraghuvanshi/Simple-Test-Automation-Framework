@@ -5,7 +5,22 @@
       "ProjectGuid": "ac51f6b7-0ee5-43a3-be07-c80bbc46200b",
       "DisplayName": "STAF",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "842008ea-f029-400a-b73d-34e757d58109": {
+      "ProjectGuid": "842008ea-f029-400a-b73d-34e757d58109",
+      "DisplayName": "OminiSpec",
+      "ColorIndex": 1
+    },
+    "de3e23c4-f9ca-437d-8fcb-8aa328aba4e9": {
+      "ProjectGuid": "de3e23c4-f9ca-437d-8fcb-8aa328aba4e9",
+      "DisplayName": "OminiSpec",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

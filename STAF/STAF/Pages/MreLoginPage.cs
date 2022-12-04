@@ -1,13 +1,15 @@
-﻿namespace STAF.Pages
+﻿using STAF.PageObjectModel;
+
+namespace STAF.Pages
 {
 
-    public class MreLoginPage : Page
+    public class MreLoginPage : WebPage
 	{
-		public MreLoginPage(string pageName): base(pageName)
-		{
-			base["EmailTextBox"] = new XPath("//*[@id='userNameInput']");
-			base["PasswordTextBox"] = new XPath("//*[@id='passwordInput']");
-			base["SignInButton"] = new XPath("//*[@id='submitButton']");
+        public override void registerPaths()
+        {
+			XPath("EmailTextBox", "//*[@id='userNameInput']");
+			XPath("PasswordTextBox", "//*[@id='passwordInput']");
+			XPath("SignInButton", "//*[@id='submitButton']");
 		}
-	}
+    }
 }

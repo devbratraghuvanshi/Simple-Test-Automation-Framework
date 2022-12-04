@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32228.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAF", "STAF\STAF.csproj", "{AC51F6B7-0EE5-43A3-BE07-C80BBC46200B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STAF", "STAF\STAF.csproj", "{AC51F6B7-0EE5-43A3-BE07-C80BBC46200B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OminiSpec", "OminiSpec\OminiSpec.csproj", "{DE3E23C4-F9CA-437D-8FCB-8AA328ABA4E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanitSpec", "PlanitSpec\PlanitSpec.csproj", "{1446B214-916B-41F2-976D-76A56D4AA17B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{AC51F6B7-0EE5-43A3-BE07-C80BBC46200B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC51F6B7-0EE5-43A3-BE07-C80BBC46200B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC51F6B7-0EE5-43A3-BE07-C80BBC46200B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3E23C4-F9CA-437D-8FCB-8AA328ABA4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3E23C4-F9CA-437D-8FCB-8AA328ABA4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3E23C4-F9CA-437D-8FCB-8AA328ABA4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3E23C4-F9CA-437D-8FCB-8AA328ABA4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1446B214-916B-41F2-976D-76A56D4AA17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1446B214-916B-41F2-976D-76A56D4AA17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1446B214-916B-41F2-976D-76A56D4AA17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1446B214-916B-41F2-976D-76A56D4AA17B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

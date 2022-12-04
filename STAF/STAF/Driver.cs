@@ -35,14 +35,19 @@ namespace STAF
 			JSInstance = (IJavaScriptExecutor)Instance;
 		}
 
-		public static void GoToUrl(this string url)
+		public static void GoToUrl(string url)
 		{
 			Instance.Navigate().GoToUrl(url);
 		}
 
-		public static string getCurrentUre()
+		public static string getCurrentUrl()
 		{
 			return Instance.Url;
+		}
+		public static string getCurrentDomain()
+		{
+			Uri url = new Uri(Instance.Url);
+			return url.Host;
 		}
 
 		public static void Refresh()
@@ -122,7 +127,7 @@ namespace STAF
 
 		private static ReadOnlyCollection<IWebElement> FindElements(By by, int seconds, ref Exception exception)
 		{
-			seconds = ((seconds == 0) ? seconds : 10);
+			seconds = (seconds > 0 ? seconds : 10);
 			Exception ex = exception;
 			ReadOnlyCollection<IWebElement> elements = null;
 			try
@@ -166,5 +171,45 @@ namespace STAF
 			}
 			return result;
 		}
+
+        #region Scroll
+		public static void ScrollToElement(IWebElement element)
+        {
+			ActionsInstance.MoveToElement(element);
+			ActionsInstance.Perform();
+		}
+
+		public static void ScrollToCoordinate(int xHorizontal = 0, int yVertical = 0)
+		{
+			var js = String.Format("window.scrollTo({0}, {1})", xHorizontal, yVertical);
+			JSInstance.ExecuteScript(js);
+		}
+
+		public static void ScrolUp(int yVertical = 0)
+		{
+			var js = String.Format("window.scrollBy(0, {0})", -1*yVertical);
+			JSInstance.ExecuteScript(js);
+		}
+		public static void ScrolDown(int yVertical = 0)
+		{
+			var js = String.Format("window.scrollBy(0, {0})", yVertical);
+			JSInstance.ExecuteScript(js);
+		}
+
+		public static void ScrolLeft(int xHorizontal = 0)
+		{
+			var js = String.Format("window.scrollBy({0}, 0)", xHorizontal);
+			JSInstance.ExecuteScript(js);
+		}
+
+		public static void ScrolRight(int xHorizontal = 0)
+		{
+			var js = String.Format("window.scrollBy({0}, 0)", -1*xHorizontal);
+			JSInstance.ExecuteScript(js);
+		}
+
+
+
+		#endregion
 	}
 }

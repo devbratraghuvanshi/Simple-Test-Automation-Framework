@@ -1,22 +1,20 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using STAF.Pages;
+﻿using OpenQA.Selenium;
+using STAF.PageObjectModel;
 
 namespace STAF.StepDefinitions
 {
-    public class BaseStepDefinitions
+    public partial class BaseStepDefinitions
 	{
 		public readonly ScenarioContext _scenarioContext;
 
-		public Page page;
+		public IWebPage page;
 
 		public BaseStepDefinitions(ScenarioContext scenarioContext)
 		{
 			_scenarioContext = scenarioContext;
 		}
 
-		[When("User Open {string} browser")]
+		[When("User/user Open {string} browser")]
 		public void WhenUserOpenBrowser(string type)
 		{
 			if (type == Browser.Chrome.ToString())
@@ -25,36 +23,23 @@ namespace STAF.StepDefinitions
 			}
 		}
 
-		[Given("User open(s) {string} browser")]
+		[Given("User/user open(s) {string} browser")]
 		public void GivenUserOpensBrowser(string type)
 		{
-			if (type == Browser.Chrome.ToString())
+			if (type.ToLower() == Browser.Chrome.ToString().ToLower())
 			{
 				Driver.Initialize(Browser.Chrome);
 			}
 		}
 
-		[Then("User goes to url {string}")]
+		[Then("User/user (goes to)/(navigates/navigate to)/open(s) url/site {string}( in the browser)")]
+		[When("User/user (goes to)/(navigates/navigate to)/open(s) url/site {string}( in the browser)")]
 		public void ThenUserGoesToUrl(string url)
 		{
-			url.GoToUrl();
+			Driver.GoToUrl(url);
 		}
 
-		[When("User goes to url {string}")]
-		public void WhenUserGoesToUrl(string url)
-		{
-			url.GoToUrl();
-		}
-
-		[Then("User Validate that current url is {string}")]
-		public void ThenUserValidateThatCurrentUrlIs(string urlToMatch)
-		{
-			var cUrl = Driver.getCurrentUre();
-			Assert.AreEqual(cUrl, urlToMatch);
-		}
-
-
-		[Then("User waits for {int} second(s)")]
+		[Then("User/user waits for {int} second(s)")]
 		public void ThenUserWaitsForSeconds(int sec)
 		{
 			//Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(secoonds);
@@ -64,23 +49,17 @@ namespace STAF.StepDefinitions
 			Driver.Wait(sec);
 		}
 
-		[Then("User close(s) the browser")]
+		[Then("User/user close(s) the browser")]
 		public void ThenUserCloseTheBrowser()
 		{
 			Driver.Close();
 		}
 
-		//[Then("User Click on {string}")]
-		//public void ThenUserClickOn(string element)
-		//{
-		//	IPath path = page[element];
-		//	path.getElement().Click();
-		//}
-		[Then("User {UserAction} on {string}")]
+		[Then("User/user {UserAction} on {string}")]
 		public void ThenUserOn(UserAction action, string element)
 		{
 			IPath path = page[element];
-			var webEle= path.getElement();
+			var webEle= path.GetElement();
             switch (action)
             {
                 case UserAction.Click:
@@ -100,7 +79,7 @@ namespace STAF.StepDefinitions
             }
 		}
 
-		[Then("User {UserAction} {int} px")]
+		[Then("User/user {UserAction} {int} px")]
 		public void ThenUserScrollDownPx(UserAction action, int scrollPixel)
 		{
             switch (action)
@@ -116,14 +95,14 @@ namespace STAF.StepDefinitions
             }
 		}
 
-		[Then("User {UserAction} to {string}")]
+		[Then("User/user {UserAction} to the {string}")]
 		public void ThenUserScrollDownTo(UserAction action, string element)
 		{
 			
 		}
 
 
-		[Then("User {UserAction} to the {PageDirection} of Page")]
+		[Then("User/user {UserAction} to the {PageDirection} of Page")]
 		public void ThenUserScrollToTheTopOfPage(UserAction action, PageDirection direction)
 		{
 			if(action == UserAction.Scroll)
@@ -141,73 +120,71 @@ namespace STAF.StepDefinitions
 		}
 
 
-		[Then("User Click on {string} of {string} page")]
+		[Then("User/user Click on {string} of {string} page")]
 		public void ThenUserClickOnOf(string element, string page)
 		{
 		}
 
-		[Then("User Right click on {string}")]
+		[Then("User/user Right click on {string}")]
 		public void ThenUserRightClickOn(string element)
 		{
 		}
 
-		[Then("User scroll to bottom of the page")]
+		[Then("User/user scroll to bottom of the page")]
 		public void ThenUserScrollToBottomOfThePage()
 		{
 		}
 
-		[Then("User scroll to {string} of the page")]
+		[Then("User/user scroll to {string} of the page")]
 		public void ThenUserScrollToOfThePage(string element)
 		{
 		}
 
-		[Then("User Scroll(s) {string} by {int} px")]
+		[Then("User/user Scroll(s) {string} by {int} px")]
 		public void ThenUserScrollSPx(string up, int px)
 		{
 
 		}
 
-		[Then("User clears the {string}")]
+		[Then("User/user clears the {string}")]
 		public void ThenUserClearsThe(string element)
 		{
 		}
 
-		[Then("User set(s) text {string} to the {string}")]
+		
 		public void ThenUserSetTextToThe(string textToset, string element)
 		{
 		}
 
-		[Then("User enter(s) {string} in the {string}")]
-		[Then("User enter(s) text {string} in the {string}")]
-		[Then("User type(s) text {string} in the {string}")]
-		public void ThenUserTypesTextInThe(string textToType, string element)
+		[Then("User/user set(s)/type(s)/enter(s) text {string} in/(into) the {string}")]
+		public void ThenUserTypesTextInTheTextBox(string textToType, string element)
 		{
-			IWebElement element2 = page[element].getElement();
+			IWebElement element2 = page[element].GetElement();
 			if (element2 != null)
 			{
 				element2.SendKeys(textToType);
 			}
 		}
 
-		[Then("User selects {int} st/nd/rd/th item of the {string}")]
+		[Then("User/user selects {int} st/nd/rd/th item of the {string}")]
 		public void ThenUserSelectsStItemOfThe(int itemNumber, string element)
 		{
 		}
 
-		[Then("User Validate(s)/validate(s)/Confirm(s)/confirm(s)/Verify/verify/Verifie(s)/verifie(s) text {string} exist on the Page")]
-		public void ThenUserValidateTextExistOnThePage(string asd)
+		[Then("User/user validate(s)/confirm(s)/verify/verifie(s) text {string} exist on the Page")]
+		public void ThenUserValidateTextExistOnThePage(string validationString)
 		{
 			//to Complete
 		}
 
-		[Then("User Validate(s)/validate(s)/Confirm(s)/confirm(s)/Verify/verify/Verifie(s)/verifie(s) text {string} exist on/in the {string}")]
+		[Then("User/user validate(s)/confirm(s)/verify/verifie(s) text {string} exist on/in the {string}")]
 		public void ThenUserValidateTextExistOnThePage(string textToVerify, string elementName )
 		{
 			//to Complete
 		}
 
 
-		[Then("User press {string} Key")]
+		[Then("User/user press {string} Key")]
 		public void ThenUserPressKey(string keyname)
 		{
 			Driver.ActionsInstance.SendKeys(Keys.Enter);

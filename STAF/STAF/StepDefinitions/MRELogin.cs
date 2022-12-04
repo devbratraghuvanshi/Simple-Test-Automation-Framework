@@ -1,5 +1,4 @@
-﻿using STAF.Pages;
-
+﻿
 namespace STAF.StepDefinitions
 {
     [Binding]
@@ -8,7 +7,7 @@ namespace STAF.StepDefinitions
 	{
 		public MRELogin(ScenarioContext scenarioContext): base(scenarioContext)
 		{
-			page = new MreLoginPage("MRELogin");
+			page = new MreLoginPage();
 		}
 	}
 }
